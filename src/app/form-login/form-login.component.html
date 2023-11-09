@@ -17,12 +17,12 @@
 				<div class="messages" [class.active]="isEmailFieldInValid">
 					<p>
 						<strong *ngIf="emailField?.hasError('required')"
-							>Este campo es requerido</strong
+							>This field is required</strong
 						>
 					</p>
 					<p>
 						<strong *ngIf="emailField?.hasError('email')"
-							>Esto no es un email válido</strong
+							>Invalid email</strong
 						>
 					</p>
 				</div>
@@ -42,18 +42,17 @@
 				<div class="messages" [class.active]="isPasswordFieldInValid">
 					<p>
 						<strong *ngIf="passwordField?.hasError('required')"
-							>Este campo es requerido</strong
+							>This field is required</strong
 						>
 					</p>
 					<p>
 						<strong *ngIf="passwordField?.hasError('password')"
-							>Esta contraseña no es válida</strong
+							>Invalid password</strong
 						>
 					</p>
 					<p>
 						<strong *ngIf="passwordField?.hasError('pattern')"
-							>La contraseña debe tener caracteres
-							especiales</strong
+							>The password must have special characters</strong
 						>
 					</p>
 				</div>

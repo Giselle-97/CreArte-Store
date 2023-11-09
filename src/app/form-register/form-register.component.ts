@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Validators, FormGroup, FormBuilder } from "@angular/forms";
+//import { MyValidators } from "../validators/validators";
 
 @Component({
 	selector: "app-form-register",
@@ -22,35 +23,41 @@ export class FormRegisterComponent implements OnInit {
 	}
 
 	private buildForm() {
-		this.form = this.formBuilder.group({
-			name: [
-				"",
-				[
-					Validators.required,
-					Validators.maxLength(20),
-					Validators.pattern(/^[a-zA-Z ]+$/),
+		this.form = this.formBuilder.group(
+			{
+				name: [
+					"",
+					[
+						Validators.required,
+						Validators.maxLength(20),
+						Validators.pattern(/^[a-zA-Z ]+$/),
+					],
 				],
-			],
-			email: [
-				"",
-				[
-					Validators.required,
-					Validators.email,
-					Validators.pattern(
-						/^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/,
-					),
+				email: [
+					"",
+					[
+						Validators.required,
+						Validators.email,
+						Validators.pattern(
+							/^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/,
+						),
+					],
 				],
-			],
-			password: [
-				"",
-				[
-					Validators.required,
-					Validators.pattern(
-						/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{6,15}$/,
-					),
+				password: [
+					"",
+					[
+						Validators.required,
+						Validators.pattern(
+							/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{6,15}$/,
+						),
+					],
 				],
-			],
-		});
+				confirmPassword: ["", [Validators.required]],
+			},
+			/*{
+				validators: MyValidators.matchPasswords,
+			},*/
+		);
 	}
 
 	get nameField() {
@@ -100,5 +107,22 @@ export class FormRegisterComponent implements OnInit {
 	}
 	get isPasswordFieldInValid() {
 		return this.passwordField?.touched && this.passwordField.invalid;
+	}
+
+	get confirmPasswordField() {
+		return this.form.get("confirmPassword");
+	}
+
+	get isConfirmPasswordFieldValid() {
+		return (
+			this.confirmPasswordField?.touched &&
+			this.confirmPasswordField.valid
+		);
+	}
+	get isConfirmPasswordFieldInValid() {
+		return (
+			this.confirmPasswordField?.touched &&
+			this.confirmPasswordField.invalid
+		);
 	}
 }

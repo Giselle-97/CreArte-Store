@@ -21,17 +21,17 @@
 								nameField?.touched &&
 								nameField?.hasError('required')
 							"
-							>Este campo es requerido</strong
+							>This field is required</strong
 						>
 					</p>
 					<p>
 						<strong *ngIf="nameField?.hasError('maxlength')"
-							>Debe tener máximo 20 caracteres</strong
+							>Must be a maximum of 20 characters</strong
 						>
 					</p>
 					<p>
 						<strong *ngIf="nameField?.hasError('pattern')"
-							>El nombre no debe tener caracteres</strong
+							>The name must not have characters</strong
 						>
 					</p>
 				</div>
@@ -52,12 +52,12 @@
 				<div class="messages" [class.active]="isEmailFieldInValid">
 					<p>
 						<strong *ngIf="emailField?.hasError('required')"
-							>Este campo es requerido</strong
+							>This field is required</strong
 						>
 					</p>
 					<p>
 						<strong *ngIf="emailField?.hasError('email')"
-							>Esto no es un email válido</strong
+							>Invalid email</strong
 						>
 					</p>
 				</div>
@@ -77,22 +77,51 @@
 				<div class="messages" [class.active]="isPasswordFieldInValid">
 					<p>
 						<strong *ngIf="passwordField?.hasError('required')"
-							>Este campo es requerido</strong
+							>This field is required</strong
 						>
 					</p>
 					<p>
 						<strong *ngIf="passwordField?.hasError('password')"
-							>Esta contraseña no es válida</strong
+							>Invalid password</strong
 						>
 					</p>
 					<p>
 						<strong *ngIf="passwordField?.hasError('pattern')"
-							>La contraseña debe tener caracteres
-							especiales</strong
+							>The password must have special characters</strong
 						>
 					</p>
 				</div>
 			</div>
+
+			<div class="box-input">
+				<label class="label" for="confirmPassword"
+					>Confirm Password</label
+				>
+				<input
+					class="input"
+					type="password"
+					name="password"
+					[class.is-valid]="isPasswordFieldValid"
+					[class.is-invalid]="isPasswordFieldInValid"
+					formControlName="confirmPassword"
+					placeholder="Ex: Pepito10#"
+				/>
+			</div>
+
+			<div class="messages" [class.active]="isPasswordFieldInValid">
+				<p>
+					<strong *ngIf="confirmPasswordField?.hasError('required')"
+						>This field is required</strong
+					>
+				</p>
+				<p>
+					<strong
+						*ngIf="confirmPasswordField?.hasError('match_password')"
+						>Password doesn't match</strong
+					>
+				</p>
+			</div>
+
 			<p>
 				<button class="btn-form" type="submit">Register</button>
 				<!--[disabled]="form.invalid"-->
