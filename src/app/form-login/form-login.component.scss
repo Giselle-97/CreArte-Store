@@ -37,6 +37,9 @@
 }
 
 //
+p {
+	margin: 0;
+}
 input {
 	&.is-valid {
 		border: 2px solid green;
@@ -55,16 +58,6 @@ input {
 }
 
 //
-.mesage-error {
-	opacity: 0;
-	transition: all linear 0.5s;
-	color: red;
-	font-family: "Roboto Serif", serif;
-	font-size: 12px;
-	&.invalid {
-		opacity: 1;
-	}
-}
 .btn-form {
 	margin-top: 10px;
 	width: 450px;
@@ -75,8 +68,4 @@ input {
 	font-weight: 700;
 	text-transform: uppercase;
 	color: #fff;
-}
-.btn-form:disabled {
-	background-color: #dbdbdb;
-	cursor: not-allowed;
 }

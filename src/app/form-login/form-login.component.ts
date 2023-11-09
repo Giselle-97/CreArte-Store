@@ -23,21 +23,26 @@ export class FormLoginComponent {
 
 	private buildForm() {
 		this.form = this.formBuilder.group({
-			name: [
+			email: [
 				"",
 				[
 					Validators.required,
-					Validators.maxLength(20),
-					Validators.pattern(/^[a-zA-Z ]+$/),
+					Validators.email,
+					Validators.pattern(
+						/^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/,
+					),
 				],
 			],
-			email: ["", [Validators.required, Validators.email]],
-			password: ["", Validators.required],
+			password: [
+				"",
+				[
+					Validators.required,
+					Validators.pattern(
+						/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{6,15}$/,
+					),
+				],
+			],
 		});
-	}
-
-	get nameField() {
-		return this.form.get("name");
 	}
 
 	ngOnInit(): void {
@@ -46,29 +51,31 @@ export class FormLoginComponent {
 		});
 	}
 
-	getNameValue() {
-		console.log(this.nameField?.value);
+	getEmailValue() {
+		console.log(this.emailField?.value);
 	}
-
-	get isNameFieldValid() {
-		return this.nameField?.touched && this.nameField.valid;
+	getPasswordValue() {
+		console.log(this.passwordField?.value);
 	}
-	get isNameFieldInValid() {
-		return this.nameField?.touched && this.nameField.invalid;
-	}
-
 	get emailField() {
 		return this.form.get("email");
 	}
 
 	get isEmailFieldValid() {
-		return this.nameField?.touched && this.nameField.valid;
+		return this.emailField?.touched && this.emailField.valid;
 	}
 	get isEmailFieldInValid() {
-		return this.nameField?.touched && this.nameField.invalid;
+		return this.emailField?.touched && this.emailField.invalid;
 	}
 
 	get passwordField() {
-		return this.form.get("phone");
+		return this.form.get("password");
+	}
+
+	get isPasswordFieldValid() {
+		return this.passwordField?.touched && this.passwordField.valid;
+	}
+	get isPasswordFieldInValid() {
+		return this.passwordField?.touched && this.passwordField.invalid;
 	}
 }

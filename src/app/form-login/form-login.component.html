@@ -3,9 +3,7 @@
 		<form class="form" [formGroup]="form" (ngSubmit)="save($event)">
 			<h1 class="text-form">Login</h1>
 			<div class="box-input">
-				<label class="label" for="email"
-					>Email: {{ emailField?.value }}</label
-				>
+				<label class="label" for="email">Email</label>
 				<input
 					class="input"
 					type="email"
@@ -16,7 +14,7 @@
 					placeholder="Ex: pepito@gmail.com"
 				/>
 
-				<div class="messages" [class.active]="isNameFieldInValid">
+				<div class="messages" [class.active]="isEmailFieldInValid">
 					<p>
 						<strong *ngIf="emailField?.hasError('required')"
 							>Este campo es requerido</strong
@@ -31,17 +29,17 @@
 			</div>
 
 			<div class="box-input">
-				<label class="label" for="password"
-					>Password{{ passwordField?.value }}</label
-				>
+				<label class="label" for="password">Password</label>
 				<input
 					class="input"
 					type="password"
 					name="password"
+					[class.is-valid]="isPasswordFieldValid"
+					[class.is-invalid]="isPasswordFieldInValid"
 					formControlName="password"
-					placeholder="Ex: pepito10"
+					placeholder="Ex: Pepito10#"
 				/>
-				<div class="messages" [class.active]="isNameFieldInValid">
+				<div class="messages" [class.active]="isPasswordFieldInValid">
 					<p>
 						<strong *ngIf="passwordField?.hasError('required')"
 							>Este campo es requerido</strong
@@ -52,10 +50,16 @@
 							>Esta contraseña no es válida</strong
 						>
 					</p>
+					<p>
+						<strong *ngIf="passwordField?.hasError('pattern')"
+							>La contraseña debe tener caracteres
+							especiales</strong
+						>
+					</p>
 				</div>
 			</div>
 			<p>
-				<button type="submit">Register</button>
+				<button class="btn-form" type="submit">Login</button>
 				<!--[disabled]="form.invalid"-->
 			</p>
 		</form>

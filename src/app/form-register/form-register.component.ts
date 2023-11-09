@@ -31,8 +31,25 @@ export class FormRegisterComponent implements OnInit {
 					Validators.pattern(/^[a-zA-Z ]+$/),
 				],
 			],
-			email: ["", [Validators.required, Validators.email]],
-			password: ["", Validators.required],
+			email: [
+				"",
+				[
+					Validators.required,
+					Validators.email,
+					Validators.pattern(
+						/^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/,
+					),
+				],
+			],
+			password: [
+				"",
+				[
+					Validators.required,
+					Validators.pattern(
+						/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{6,15}$/,
+					),
+				],
+			],
 		});
 	}
 
@@ -41,9 +58,6 @@ export class FormRegisterComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.nameField?.valueChanges.subscribe((value: any) => {
-			console.log(value);
-		});
 		this.form.valueChanges.subscribe((value: any) => {
 			console.log(value);
 		});
@@ -51,6 +65,12 @@ export class FormRegisterComponent implements OnInit {
 
 	getNameValue() {
 		console.log(this.nameField?.value);
+	}
+	getEmailValue() {
+		console.log(this.emailField?.value);
+	}
+	getPasswordValue() {
+		console.log(this.passwordField?.value);
 	}
 
 	get isNameFieldValid() {
@@ -65,13 +85,20 @@ export class FormRegisterComponent implements OnInit {
 	}
 
 	get isEmailFieldValid() {
-		return this.nameField?.touched && this.nameField.valid;
+		return this.emailField?.touched && this.emailField.valid;
 	}
 	get isEmailFieldInValid() {
-		return this.nameField?.touched && this.nameField.invalid;
+		return this.emailField?.touched && this.emailField.invalid;
 	}
 
 	get passwordField() {
-		return this.form.get("phone");
+		return this.form.get("password");
+	}
+
+	get isPasswordFieldValid() {
+		return this.passwordField?.touched && this.passwordField.valid;
+	}
+	get isPasswordFieldInValid() {
+		return this.passwordField?.touched && this.passwordField.invalid;
 	}
 }
