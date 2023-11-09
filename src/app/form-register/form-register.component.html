@@ -1,0 +1,59 @@
+<div class="container-form">
+	<div class="box-form">
+		<form class="form" #registerForm="ngForm" (ngSubmit)="onRegister()">
+			<h1 class="text-form">Register</h1>
+			<div class="box-input">
+				<label class="label" for="name">Name*</label>
+				<input
+					#nameInput="ngModel"
+					class="input"
+					type="text"
+					name="name"
+					required
+					[(ngModel)]="register.name"
+					placeholder="Ex: Pepito Díaz"
+				/>
+				<p class="mesage-error" [class.invalid]="nameInput.invalid">
+					This field is required
+				</p>
+			</div>
+			<div class="box-input">
+				<label class="label" for="email">Email*</label>
+				<input
+					#nameInput="ngModel"
+					class="input"
+					type="email"
+					name="email"
+					required
+					[(ngModel)]="register.email"
+					placeholder="Ex: pepito@gmail.com"
+				/>
+				<p class="mesage-error" [class.invalid]="nameInput.invalid">
+					This field is required*
+				</p>
+			</div>
+			<div class="box-input">
+				<label class="label" for="password">Password*</label>
+				<input
+					#nameInput="ngModel"
+					class="input"
+					type="password"
+					name="password"
+					required
+					[(ngModel)]="register.password"
+					placeholder="Ex: pepito10"
+				/>
+				<p class="mesage-error" [class.invalid]="nameInput.invalid">
+					This field is required
+				</p>
+			</div>
+			<button
+				class="btn-form"
+				[disabled]="registerForm.invalid"
+				type="submit"
+			>
+				Register
+			</button>
+		</form>
+	</div>
+</div>

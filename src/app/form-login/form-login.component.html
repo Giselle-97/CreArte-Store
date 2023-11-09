@@ -1,0 +1,44 @@
+<div class="container-form">
+	<div class="box-form">
+		<form class="form" #formLogin="ngForm" (ngSubmit)="onLogin()">
+			<h1 class="text-form">Login</h1>
+			<div class="box-input">
+				<label class="label" for="email">Email</label>
+				<input
+					#nameInput="ngModel"
+					class="input"
+					type="email"
+					name="email"
+					required
+					[(ngModel)]="login.email"
+					placeholder="Ex: pepito@gmail.com"
+				/>
+				<p class="mesage-error" [class.invalid]="nameInput.invalid">
+					This field is required
+				</p>
+			</div>
+			<div class="box-input">
+				<label class="label" for="password">Password</label>
+				<input
+					#nameInput="ngModel"
+					class="input"
+					type="password"
+					name="password"
+					required
+					[(ngModel)]="login.password"
+					placeholder="Ex: pepito10"
+				/>
+				<p class="mesage-error" [class.invalid]="nameInput.invalid">
+					This field is required
+				</p>
+			</div>
+			<button
+				class="btn-form"
+				[disabled]="formLogin.invalid"
+				type="submit"
+			>
+				Login
+			</button>
+		</form>
+	</div>
+</div>
