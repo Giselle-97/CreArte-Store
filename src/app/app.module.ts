@@ -4,7 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app.routing.module";
 import { AppComponent } from "./app.component";
 import { ProductsComponent } from "./products/products.component";
-import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 import { FormRegisterComponent } from "./form-register/form-register.component";
 import { FormLoginComponent } from "./form-login/form-login.component";
 
@@ -15,7 +15,7 @@ import { FormLoginComponent } from "./form-login/form-login.component";
 		FormRegisterComponent,
 		FormLoginComponent,
 	],
-	imports: [BrowserModule, AppRoutingModule, FormsModule],
+	imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
 	providers: [],
 	bootstrap: [AppComponent],
 })

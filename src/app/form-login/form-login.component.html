@@ -1,44 +1,63 @@
 <div class="container-form">
 	<div class="box-form">
-		<form class="form" #formLogin="ngForm" (ngSubmit)="onLogin()">
+		<form class="form" [formGroup]="form" (ngSubmit)="save($event)">
 			<h1 class="text-form">Login</h1>
 			<div class="box-input">
-				<label class="label" for="email">Email</label>
+				<label class="label" for="email"
+					>Email: {{ emailField?.value }}</label
+				>
 				<input
-					#nameInput="ngModel"
 					class="input"
 					type="email"
 					name="email"
-					required
-					[(ngModel)]="login.email"
+					[class.is-valid]="isEmailFieldValid"
+					[class.is-invalid]="isEmailFieldInValid"
+					formControlName="email"
 					placeholder="Ex: pepito@gmail.com"
 				/>
-				<p class="mesage-error" [class.invalid]="nameInput.invalid">
-					This field is required
-				</p>
+
+				<div class="messages" [class.active]="isNameFieldInValid">
+					<p>
+						<strong *ngIf="emailField?.hasError('required')"
+							>Este campo es requerido</strong
+						>
+					</p>
+					<p>
+						<strong *ngIf="emailField?.hasError('email')"
+							>Esto no es un email válido</strong
+						>
+					</p>
+				</div>
 			</div>
+
 			<div class="box-input">
-				<label class="label" for="password">Password</label>
+				<label class="label" for="password"
+					>Password{{ passwordField?.value }}</label
+				>
 				<input
-					#nameInput="ngModel"
 					class="input"
 					type="password"
 					name="password"
-					required
-					[(ngModel)]="login.password"
+					formControlName="password"
 					placeholder="Ex: pepito10"
 				/>
-				<p class="mesage-error" [class.invalid]="nameInput.invalid">
-					This field is required
-				</p>
+				<div class="messages" [class.active]="isNameFieldInValid">
+					<p>
+						<strong *ngIf="passwordField?.hasError('required')"
+							>Este campo es requerido</strong
+						>
+					</p>
+					<p>
+						<strong *ngIf="passwordField?.hasError('password')"
+							>Esta contraseña no es válida</strong
+						>
+					</p>
+				</div>
 			</div>
-			<button
-				class="btn-form"
-				[disabled]="formLogin.invalid"
-				type="submit"
-			>
-				Login
-			</button>
+			<p>
+				<button type="submit">Register</button>
+				<!--[disabled]="form.invalid"-->
+			</p>
 		</form>
 	</div>
 </div>

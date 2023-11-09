@@ -1,59 +1,99 @@
 <div class="container-form">
 	<div class="box-form">
-		<form class="form" #registerForm="ngForm" (ngSubmit)="onRegister()">
+		<form class="form" [formGroup]="form" (ngSubmit)="save($event)">
 			<h1 class="text-form">Register</h1>
 			<div class="box-input">
-				<label class="label" for="name">Name*</label>
+				<label class="label" for="name"
+					>Name: {{ nameField?.value }} {{ nameField?.valid }}</label
+				>
 				<input
-					#nameInput="ngModel"
-					class="input"
 					type="text"
 					name="name"
-					required
-					[(ngModel)]="register.name"
+					[class.is-valid]="isNameFieldValid"
+					[class.is-invalid]="isNameFieldInValid"
+					type="text"
+					formControlName="name"
 					placeholder="Ex: Pepito Díaz"
 				/>
-				<p class="mesage-error" [class.invalid]="nameInput.invalid">
-					This field is required
-				</p>
+				<div class="messages" [class.active]="isNameFieldInValid">
+					<p>
+						<strong
+							*ngIf="
+								nameField?.touched &&
+								nameField?.hasError('required')
+							"
+							>Este campo es requerido</strong
+						>
+					</p>
+					<p>
+						<strong *ngIf="nameField?.hasError('maxlength')"
+							>Debe tener máximo 20 caracteres</strong
+						>
+					</p>
+					<p>
+						<strong *ngIf="nameField?.hasError('pattern')"
+							>El nombre no debe tener caracteres</strong
+						>
+					</p>
+				</div>
 			</div>
+
 			<div class="box-input">
-				<label class="label" for="email">Email*</label>
+				<label class="label" for="email"
+					>Email: {{ emailField?.value }}</label
+				>
 				<input
-					#nameInput="ngModel"
 					class="input"
 					type="email"
 					name="email"
-					required
-					[(ngModel)]="register.email"
+					[class.is-valid]="isEmailFieldValid"
+					[class.is-invalid]="isEmailFieldInValid"
+					formControlName="email"
 					placeholder="Ex: pepito@gmail.com"
 				/>
-				<p class="mesage-error" [class.invalid]="nameInput.invalid">
-					This field is required*
-				</p>
+
+				<div class="messages" [class.active]="isNameFieldInValid">
+					<p>
+						<strong *ngIf="emailField?.hasError('required')"
+							>Este campo es requerido</strong
+						>
+					</p>
+					<p>
+						<strong *ngIf="emailField?.hasError('email')"
+							>Esto no es un email válido</strong
+						>
+					</p>
+				</div>
 			</div>
+
 			<div class="box-input">
-				<label class="label" for="password">Password*</label>
+				<label class="label" for="password"
+					>Password{{ passwordField?.value }}</label
+				>
 				<input
-					#nameInput="ngModel"
 					class="input"
 					type="password"
 					name="password"
-					required
-					[(ngModel)]="register.password"
+					formControlName="password"
 					placeholder="Ex: pepito10"
 				/>
-				<p class="mesage-error" [class.invalid]="nameInput.invalid">
-					This field is required
-				</p>
+				<div class="messages" [class.active]="isNameFieldInValid">
+					<p>
+						<strong *ngIf="passwordField?.hasError('required')"
+							>Este campo es requerido</strong
+						>
+					</p>
+					<p>
+						<strong *ngIf="passwordField?.hasError('password')"
+							>Esta contraseña no es válida</strong
+						>
+					</p>
+				</div>
 			</div>
-			<button
-				class="btn-form"
-				[disabled]="registerForm.invalid"
-				type="submit"
-			>
-				Register
-			</button>
+			<p>
+				<button type="submit">Register</button>
+				<!--[disabled]="form.invalid"-->
+			</p>
 		</form>
 	</div>
 </div>
