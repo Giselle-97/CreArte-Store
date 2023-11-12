@@ -1,13 +1,12 @@
-/*import { AbstractControl } from "@angular/forms";
+import { FormGroup } from "@angular/forms";
 
 export class MyValidators {
-	static matchPasswords(control: AbstractControl) {
-		const password = control.get("password").value;
-		const confirmPassword = control.get("confirmPassword").value;
-		if (password === confirmPassword) {
+	static matchPasswords(form: FormGroup) {
+		const password = form?.get("password")?.value;
+		const confirmPassword = form?.get("confirmPassword")?.value;
+		if (password && confirmPassword && password === confirmPassword) {
 			return null;
 		}
 		return { match_password: true };
 	}
 }
-*/

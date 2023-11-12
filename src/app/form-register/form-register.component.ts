@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Validators, FormGroup, FormBuilder } from "@angular/forms";
-//import { MyValidators } from "../validators/validators";
+import { MyValidators } from "../validators/validators";
 
 @Component({
 	selector: "app-form-register",
@@ -54,9 +54,9 @@ export class FormRegisterComponent implements OnInit {
 				],
 				confirmPassword: ["", [Validators.required]],
 			},
-			/*{
+			{
 				validators: MyValidators.matchPasswords,
-			},*/
+			},
 		);
 	}
 
