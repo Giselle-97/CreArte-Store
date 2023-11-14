@@ -10,7 +10,7 @@ export class ProductComponent {
 	imgShoppingCart = "./assets/images/shopping.png";
 
 	@Input() product: Produtcs = {
-		id: 1,
+		id: "",
 		name: "",
 		price: 0,
 		image: "",
@@ -20,5 +20,6 @@ export class ProductComponent {
 
 	onAddToCart() {
 		this.addedProduct.emit(this.product);
+		console.log(this.product);
 	}
 }

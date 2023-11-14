@@ -1,34 +1,78 @@
-<div class="container">
-	<!--<img class="imgLogo" [src]="imgLogo" alt="logo" />-->
-	<h1 class="title">{{ title }}</h1>
-</div>
-<nav class="menu-nav">
-	<ul class="list-ul">
-		<li class="list-li">
-			<a
-				class="link"
-				routerLink="/products"
-				routerLinkActive="active"
-				ariaCurrentWhenActive="page"
-				>Products</a
-			>
-		</li>
-		<li class="list-li">
-			<a
-				class="link"
-				routerLink="/register"
-				routerLinkActive="active"
-				ariaCurrentWhenActive="page"
-				>Register</a
-			>
-		</li>
-		<li class="list-li">
-			<a class="link" routerLink="/login">Login</a>
-		</li>
-	</ul>
-	<div>
-		<button class="btn-menu">
-			<img class="car-menu" [src]="imgMenuCar" alt="" />
+<div class="mobile">
+	<div class="container-nav-mobile">
+		<button (click)="toggleMenu()" class="btn-menu">
+			<img [src]="imgMenu" alt="menu" class="imgMenu" />
 		</button>
+		<a href="">
+			<img [src]="imgLogo" alt="" class="img-logo" />
+		</a>
+		<a href="">
+			<img [src]="imgShoppingCar" alt="" class="imgShoppingCar" />
+		</a>
 	</div>
-</nav>
+	<div class="side--menu" [class.active]="activeMenu">
+		<div class="box-btnCloseMenu">
+			<button (click)="toggleMenu()" class="btnCloseMenu">Close</button>
+		</div>
+
+		<ul class="list-ul">
+			<li class="list-li">
+				<a
+					class="link"
+					routerLink="/products"
+					routerLinkActive="active"
+					ariaCurrentWhenActive="page"
+					>Products</a
+				>
+			</li>
+			<li class="list-li">
+				<a
+					class="link"
+					routerLink="/register"
+					routerLinkActive="active"
+					ariaCurrentWhenActive="page"
+					>Register</a
+				>
+			</li>
+			<li class="list-li">
+				<a class="link" routerLink="/login">Login</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="hide-mobile">
+	<!--<img class="imgLogo" [src]="imgLogo" alt="logo" />
+  	<h1 class="title">{{ title }}</h1>
+  -->
+	<nav class="side--menu">
+		<ul class="list-ul">
+			<li class="list-li">
+				<a
+					class="link"
+					routerLink="/products"
+					routerLinkActive="active"
+					ariaCurrentWhenActive="page"
+					>Products</a
+				>
+			</li>
+			<li class="list-li">
+				<a
+					class="link"
+					routerLink="/register"
+					routerLinkActive="active"
+					ariaCurrentWhenActive="page"
+					>Register</a
+				>
+			</li>
+			<li class="list-li">
+				<a class="link" routerLink="/login">Login</a>
+			</li>
+		</ul>
+		<div>
+			<button class="btn-menu">
+				<img [src]="imgShoppingCar" alt="" class="imgShoppingCar" />
+			</button>
+		</div>
+	</nav>
+</div>

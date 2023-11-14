@@ -7,8 +7,12 @@ import { Component } from "@angular/core";
 })
 export class HeaderComponent {
 	title = "CreArte";
-
+	imgMenu = "./assets/images/menu.png";
 	imgLogo = "./assets/images/logo.png";
+	imgShoppingCar = "./assets/images/car-menu.png";
 
-	imgMenuCar = "./assets/images/car-menu.png";
+	activeMenu = false;
+	toggleMenu() {
+		this.activeMenu = !this.activeMenu;
+	}
 }

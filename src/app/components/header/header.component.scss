@@ -1,5 +1,75 @@
-.header {
-	width: 100%;
+.mobile {
+	display: block;
+	box-shadow: 0px 2px 5px rgb(black, 0.2);
+	.container-nav-mobile {
+		padding: 1em;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.btn-menu {
+			border: 0;
+			background: transparent;
+		}
+		.imgMenu {
+			width: 20px;
+		}
+		.img-logo {
+			width: 80px;
+			height: 50px;
+		}
+		.imgShoppingCar {
+			width: 20px;
+		}
+	}
+	.side--menu {
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: white;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		transform: translateX(-100%);
+		transition: all ease-out 0.5s;
+		&.active {
+			transform: translateX(0);
+		}
+	}
+	.box-btnCloseMenu {
+		display: flex;
+		justify-content: flex-end;
+		padding: 15px;
+	}
+	.btnCloseMenu {
+		border: solid 2px rgba(0, 0, 255, 0.712);
+		width: 60px;
+		background-color: rgba(0, 0, 255, 0.712);
+		color: white;
+		text-transform: uppercase;
+		cursor: pointer;
+		padding: 5px;
+		font-weight: 700;
+	}
+	.list-ul {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 0;
+		padding: 15px;
+		gap: 20px;
+	}
+	.list-li {
+		list-style: none;
+	}
+
+	.link {
+		text-decoration: none;
+		font-family: "Roboto Slab", serif;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
 }
 .menu-nav {
 	background-color: rgb(39, 185, 136);
@@ -9,79 +79,72 @@
 	margin-bottom: 40px;
 }
 
-.container {
+//-----------------------------------------------------------------------------------------------
+
+.hide-mobile {
 	display: flex;
 	justify-content: center;
 	font-size: 1.2rem;
 
 	//padding: 10px;
-}
-.title {
-	margin: 0;
-	padding: 10px 0;
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
 
-.imgLogo {
-	width: 8%;
-	height: 8%;
-}
+	.title {
+		margin: 0;
+		padding: 10px 0;
+		font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	}
 
-.list-ul {
-	display: flex;
-	margin: 0;
-	padding: 15px;
-	gap: 20px;
-}
-.list-li {
-	list-style: none;
-}
+	.list-ul {
+		display: flex;
+		margin: 0;
+		padding: 15px;
+		gap: 20px;
+	}
+	.list-li {
+		list-style: none;
+	}
 
-.link {
-	text-decoration: none;
-	font-family: "Roboto Slab", serif;
-	font-weight: bold;
-	text-transform: uppercase;
-}
+	.link {
+		text-decoration: none;
+		font-family: "Roboto Slab", serif;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
 
-.btn-menu {
-	border: none;
-	cursor: pointer;
-	background-color: transparent;
-	margin-right: 15px;
-	padding: 5px;
-	border-radius: 50%;
-	&:hover {
-		background-color: rgb(162, 228, 205);
-		transition-duration: 1s;
+	.btn-menu {
+		border: none;
+		cursor: pointer;
+		background-color: transparent;
+		margin-right: 15px;
+		padding: 5px;
+		border-radius: 50%;
+		&:hover {
+			background-color: rgb(162, 228, 205);
+			transition-duration: 1s;
+		}
+	}
+
+	.imgShoppingCar {
+		width: 20px;
 	}
 }
 
-.car-menu {
-	width: 20px;
-	//padding-right: 15px;
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+	.mobile {
+		display: none;
+	}
+	.hide-mobile {
+		display: block;
+	}
 }
 
-/*.containerBtn {
-	display: flex;
-	justify-content: center;
-	gap: 20px;
+/* Large and up */
+@media screen and (min-width: 64em) {
+	.mobile {
+		display: none;
+	}
+	.hide-mobile {
+		display: block;
+	}
 }
-.btn {
-	display: flex;
-	align-items: center;
-	background-color: aqua;
-	gap: 5px;
-	//box-sizing: border-box;
-	border: 2px solid blue;
-	border-radius: 0.25rem;
-	padding: 10px 25px;
-}
-
-.imgBtn {
-	//display: inline-flex;
-	//align-items: center;
-	width: 20px;
-	height: 20px;
-}
-*/
