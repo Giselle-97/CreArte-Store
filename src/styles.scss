@@ -1,6 +1,10 @@
-body {
-	margin: 0;
-}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&family=Roboto+Serif:opsz,wght@8..144,500&family=Roboto+Slab&display=swap");
 
-$font-serif: "Roboto Serif", serif;
-$font-slab: "Roboto Slab", serif;
+@import url(./styles.scss);
+
+* {
+	font-family: "Playfair Display", serif;
+	font-family: "Roboto", sans-serif;
+	font-family: "Roboto Serif", serif;
+	font-family: "Roboto Slab", serif;
+}

@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router"; // CLI imports router
-import { ProductsComponent } from "./products/products.component";
-import { FormRegisterComponent } from "./form-register/form-register.component";
-import { FormLoginComponent } from "./form-login/form-login.component";
+import { ProductsComponent } from "./components/products/products.component";
+import { FormRegisterComponent } from "./components/form-register/form-register.component";
+import { FormLoginComponent } from "./components/form-login/form-login.component";
 
 const routes: Routes = [
 	{ path: "", redirectTo: "/products", pathMatch: "full" },
