@@ -10,7 +10,7 @@ import { FormRegisterComponent } from "./components/form-register/form-register.
 import { FormLoginComponent } from "./components/form-login/form-login.component";
 import { SearchComponent } from "./components/search/search.component";
 import { HeaderComponent } from "./components/header/header.component";
-import { NavComponent } from "./components/nav/nav.component";
+import { FooterComponent } from "./components/footer/footer.component";
 
 @NgModule({
 	declarations: [
@@ -20,8 +20,8 @@ import { NavComponent } from "./components/nav/nav.component";
 		FormRegisterComponent,
 		FormLoginComponent,
 		HeaderComponent,
-		NavComponent,
 		SearchComponent,
+		FooterComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
 	providers: [],

@@ -59,6 +59,17 @@ input {
 }
 
 //
+.box-btn-register {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 10px;
+}
+.text-or {
+	font-size: 14px;
+	font-weight: bold;
+	//font-family: ;
+}
 .btn-form {
 	margin-top: 10px;
 	width: 270px;
@@ -71,10 +82,15 @@ input {
 	text-transform: uppercase;
 	color: #fff;
 }
+.link {
+	text-decoration: none;
+	color: #fff;
+	//font-size: 0.8rem;
+}
 
 @media screen and (min-width: 40em) {
 	.box-form {
-		padding: 30px 16px;
+		//padding: 30px 16px;
 		width: 450px;
 	}
 

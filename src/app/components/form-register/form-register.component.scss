@@ -71,9 +71,38 @@ input {
 	color: #fff;
 }
 
+.box-btn-login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 10px;
+}
+.text-or {
+	font-size: 14px;
+	font-weight: bold;
+	//font-family: ;
+}
+.btn-form {
+	margin-top: 10px;
+	width: 270px;
+	padding: 8px;
+	font-size: 0.8rem;
+	box-sizing: border-box;
+	background-color: rgba(0, 0, 255, 0.712);
+	border: none;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #fff;
+}
+.link {
+	text-decoration: none;
+	color: #fff;
+	//font-size: 0.8rem;
+}
+
 @media screen and (min-width: 40em) {
 	.box-form {
-		padding: 30px 16px;
+		//padding: 30px 16px;
 		width: 450px;
 	}
 
