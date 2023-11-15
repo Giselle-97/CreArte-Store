@@ -2,6 +2,7 @@
 	<div class="box-form">
 		<form class="form" [formGroup]="form" (ngSubmit)="save($event)">
 			<h1 class="text-form">Register</h1>
+
 			<div class="box-input">
 				<label class="label" for="name">Name </label>
 				<input
@@ -48,7 +49,6 @@
 					formControlName="email"
 					placeholder="Ex: pepito@gmail.com"
 				/>
-
 				<div class="messages" [class.active]="isEmailFieldInValid">
 					<p>
 						<strong *ngIf="emailField?.hasError('required')"
@@ -107,7 +107,6 @@
 					placeholder="Ex: Pepito10#"
 				/>
 			</div>
-
 			<div class="messages" [class.active]="isPasswordFieldInValid">
 				<p>
 					<strong *ngIf="confirmPasswordField?.hasError('required')"
@@ -124,7 +123,6 @@
 
 			<p>
 				<button class="btn-form" type="submit">Register</button>
-				<!--[disabled]="form.invalid"-->
 			</p>
 		</form>
 	</div>
