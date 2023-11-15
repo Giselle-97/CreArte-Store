@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Produtcs } from "src/app/app.interface";
+import { StoreService } from "src/app/services/store.service";
 
 @Component({
 	selector: "app-products",
@@ -8,6 +9,8 @@ import { Produtcs } from "src/app/app.interface";
 })
 export class ProductsComponent {
 	myShoppingCart: Produtcs[] = [];
+	total = 0;
+
 	products: Produtcs[] = [
 		{
 			id: "1",
@@ -70,8 +73,14 @@ export class ProductsComponent {
 		},
 	];
 
+	//inyección de dependencias
+	constructor(private storeService: StoreService) {
+		this.myShoppingCart = this.storeService.getShoppingCart();
+	}
+
 	onAddToShoppingCart(product: Produtcs) {
-		this.myShoppingCart.push(product);
-		//console.log(product);
+		//this.myShoppingCart.push(product);
+		this.storeService.addProduct(product);
+		this.total = this.storeService.getTotal();
 	}
 }
