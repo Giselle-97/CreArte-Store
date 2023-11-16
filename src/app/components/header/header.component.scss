@@ -94,6 +94,10 @@
 		font-family: "Roboto Slab", serif;
 		font-weight: bold;
 		text-transform: uppercase;
+		color: black;
+		&:hover {
+			color: rgba(0, 0, 255, 0.712);
+		}
 	}
 }
 
@@ -129,7 +133,11 @@
 				font-family: "Roboto Slab", serif;
 				font-weight: bold;
 				text-transform: uppercase;
-				color: rgba(0, 0, 255, 0.712);
+				//color: rgba(0, 0, 255, 0.712);
+				color: black;
+				&:hover {
+					color: rgba(0, 0, 255, 0.712);
+				}
 			}
 		}
 	}
